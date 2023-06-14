@@ -8,6 +8,7 @@ import Home from './components/pages/Home';
 import { RecoilRoot } from 'recoil';
 import Loading from './components/Loading';
 import PokemonDetails from './components/pages/PokemonDetails';
+import NotFound from './components/pages/NotFound';
 
 function App() {
   return (
@@ -16,9 +17,10 @@ function App() {
         <Suspense fallback={<Loading />}>
           <BrowserRouter>
             <Routes>
-              <Route element={<Layout />}>
-                <Route path="/" element={<Home />} />
-                <Route path={`/pokemon/:name`} element={<PokemonDetails />} />
+              <Route Component={Layout}>
+                <Route path="/" Component={Home} />
+                <Route path={`/pokemon/:id`} Component={PokemonDetails} />
+                <Route path={'*'} Component={NotFound} />
               </Route>
             </Routes>
           </BrowserRouter>
