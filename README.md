@@ -57,7 +57,7 @@ npm start
 
 ## 🏠 Lighthouse SEO 점수 향상
 <img width="400" alt="image" src="https://github.com/bellmin9321/pokemon/assets/49411767/a19fa8c7-b030-4d27-b093-37d1b8670cf2">
-
+➡
 <img width="400" alt="image" src="https://github.com/bellmin9321/pokemon/assets/49411767/9d036eb9-2c3e-495f-8c70-a89824c30a36">
 
 
