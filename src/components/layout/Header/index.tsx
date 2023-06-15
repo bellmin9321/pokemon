@@ -3,8 +3,9 @@ import styled from 'styled-components';
 function Header() {
   return (
     <HeaderContainer>
-      <TitleBox>
-        <Title href="/">Pokemon</Title>
+      <TitleBox href="/">
+        <NotFoundImg src={`${process.env.PUBLIC_URL}/favicon.ico`} />
+        <Title>Pokemon</Title>
       </TitleBox>
     </HeaderContainer>
   );
@@ -16,18 +17,24 @@ const HeaderContainer = styled.header`
   align-items: center;
   height: 10vh;
   width: 100%;
-  background-color: lightblue;
+  background-color: #e72e2e;
   color: white;
 `;
 
-const TitleBox = styled.div`
+const TitleBox = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
   margin-left: 20px;
+  text-decoration: none;
 `;
 
-const Title = styled.a`
+const NotFoundImg = styled.img`
+  width: 30px;
+  margin-right: 10px;
+`;
+
+const Title = styled.span`
   color: white;
   text-decoration: none;
   font-weight: bold;

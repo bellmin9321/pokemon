@@ -19,8 +19,8 @@ function App() {
             <Routes>
               <Route Component={Layout}>
                 <Route path="/" Component={Home} />
-                <Route path={`/pokemon/:id`} Component={PokemonDetails} />
-                <Route path={'*'} Component={NotFound} />
+                <Route path="/pokemon/:id" Component={PokemonDetails} />
+                <Route path="*" Component={NotFound} />
               </Route>
             </Routes>
           </BrowserRouter>

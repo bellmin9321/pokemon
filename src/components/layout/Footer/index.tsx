@@ -17,13 +17,12 @@ const FooterContainer = styled.footer`
   justify-content: center;
   height: 10vh;
   width: 100%;
-  background-color: lightblue;
+  background-color: #e72e2e;
   color: white;
-  margin-top: 20px;
 `;
 
 const GithubText = styled.a`
-  color: #9f9999;
+  color: yellow;
   text-decoration: none;
   font-weight: bold;
 `;
