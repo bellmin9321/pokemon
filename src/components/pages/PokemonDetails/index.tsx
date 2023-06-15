@@ -10,6 +10,7 @@ import { capitalize } from '../../../lib/utils';
 import SpeciesInfo from './SpeciesInfo';
 import { useSetRecoilState } from 'recoil';
 import { inputSearchValue } from '../../../lib/recoil';
+import Seo from '../../Seo';
 
 function PokemonDetails() {
   const { id } = useParams();
@@ -21,6 +22,11 @@ function PokemonDetails() {
 
   return (
     <PokemonDetailsContainer>
+      <Seo
+        title="Pokemon Detailed Page"
+        description="You can see about pokemon detail"
+        keywords="detail"
+      />
       {isLoading ? (
         <Loading />
       ) : (

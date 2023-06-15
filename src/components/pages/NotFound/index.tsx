@@ -1,9 +1,15 @@
 import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
+import Seo from '../../Seo';
 
 function NotFound() {
   return (
     <NotFoundContainer>
+      <Seo
+        title="Pokemon 404 NotFound Page"
+        description="use another page"
+        keywords="404"
+      />
       <NotFoundImg src={`${process.env.PUBLIC_URL}/favicon.ico`} />
       <NotFoundTextBox>
         <div>404 NotFound Page</div>
