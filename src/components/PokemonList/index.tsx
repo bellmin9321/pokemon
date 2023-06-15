@@ -47,7 +47,7 @@ function PokemonList() {
                       pokemonName={
                         koreanNamesList[parseInt(String(pokemon?.id / 20))][
                           (pokemon?.id % 20) - 1
-                        ] || (pokemon?.name as string)
+                        ]
                       }
                       pokemonImgUrl={findPokemonDBImage(pokemon?.name)}
                     />
@@ -86,7 +86,7 @@ const PokemonListContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 20px;
+  margin: 15vh 0;
 `;
 
 const SearchedPokemonCardWrapper = styled.div`
@@ -94,7 +94,7 @@ const SearchedPokemonCardWrapper = styled.div`
 `;
 
 const BlankWrapper = styled.div`
-  height: 80vh;
+  height: 90vh;
 `;
 
 const ScrollToTopBtn = styled.button`
