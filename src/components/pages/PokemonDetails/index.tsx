@@ -8,11 +8,14 @@ import Loading from '../../Loading';
 
 import { capitalize } from '../../../lib/utils';
 import SpeciesInfo from './SpeciesInfo';
+import { useSetRecoilState } from 'recoil';
+import { inputSearchValue } from '../../../lib/recoil';
 
 function PokemonDetails() {
   const { id } = useParams();
   const { state } = useLocation();
   const navigate = useNavigate();
+  const setSearchNumber = useSetRecoilState(inputSearchValue);
 
   const { data: pokemon, isLoading } = useGetPokemon(String(id));
 
@@ -60,7 +63,14 @@ function PokemonDetails() {
         </>
       )}
 
-      <BackBtn onClick={() => navigate(-1)}>BACK</BackBtn>
+      <BackBtn
+        onClick={() => {
+          setSearchNumber('');
+          navigate(-1);
+        }}
+      >
+        BACK
+      </BackBtn>
     </PokemonDetailsContainer>
   );
 }
@@ -71,6 +81,7 @@ const PokemonDetailsContainer = styled.div`
   align-items: center;
   justify-content: center;
   height: 80vh;
+  margin-top: 10vh;
 `;
 
 const PokemonImageBox = styled.div`
