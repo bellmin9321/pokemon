@@ -2,42 +2,99 @@ import PokemonCard from '../PokemonCard';
 import { styled } from 'styled-components';
 import Loading from '../Loading';
 import useInfiniteQueryWithScroll from '../../lib/hooks/useInfiniteQueryWithScroll';
-import { DEFAULT_LIMIT } from '../../constants';
+import { DEFAULT_LIMIT, UNKNOWN } from '../../constants';
 import useScroll from '../../lib/hooks/useScroll';
-
-interface Pokemon {
-  name: string;
-  url: string;
-}
+import usePokemonKoreanNames from '../../lib/hooks/usePokemonKoreanNames';
+import { Species } from '../../types';
+import { useRecoilValue } from 'recoil';
+import { inputSearchValue } from '../../lib/recoil';
+import { findPokemonDBImage, useGetPokemon } from '../../lib/hooks/usePokemon';
+import useDebounce from '../../lib/hooks/useDebounce';
 
 function PokemonList() {
+  const searchNumber = useRecoilValue(inputSearchValue);
+  const debouncedSearchNumber = useDebounce({
+    value: searchNumber,
+    delay: 500,
+  });
   const { showTopBtn, scrollToTop } = useScroll();
-  const { data, isFetching, ObservationComponent } = useInfiniteQueryWithScroll(
-    { limit: DEFAULT_LIMIT },
+
+  const { data, isLoading, isFetching, ObservationComponent } =
+    useInfiniteQueryWithScroll({ limit: DEFAULT_LIMIT });
+  const { koreanNamesList } = usePokemonKoreanNames();
+
+  const { data: pokemon, isLoading: searchLoading } = useGetPokemon(
+    debouncedSearchNumber,
   );
 
   return (
-    <PokemonListWrapper>
-      {data?.map((page) =>
-        page?.pokemonList.map((pokemon: Pokemon, index: number) => (
-          <PokemonCard
-            key={index}
-            pokemonName={pokemon.name}
-            pokemonImgUrl={`https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg`}
-          />
-        )),
+    <>
+      {isLoading ? (
+        <BlankWrapper>
+          <Loading />
+        </BlankWrapper>
+      ) : (
+        <PokemonListContainer>
+          {debouncedSearchNumber ? (
+            <SearchedPokemonCardWrapper>
+              {searchLoading ? (
+                <Loading />
+              ) : (
+                <>
+                  {pokemon ? (
+                    <PokemonCard
+                      id={(pokemon?.id - 1) as number}
+                      pokemonName={
+                        koreanNamesList[parseInt(String(pokemon?.id / 20))][
+                          (pokemon?.id % 20) - 1
+                        ] || (pokemon?.name as string)
+                      }
+                      pokemonImgUrl={findPokemonDBImage(pokemon?.name)}
+                    />
+                  ) : (
+                    <h1>검색하신 번호의 포켓몬이 존재하지 않습니다</h1>
+                  )}
+                </>
+              )}
+            </SearchedPokemonCardWrapper>
+          ) : (
+            <>
+              {data?.map((page, idx) =>
+                page?.pokemonList.map((pokemon: Species, index: number) => (
+                  <PokemonCard
+                    key={index}
+                    id={idx * 20 + index}
+                    pokemonName={koreanNamesList[idx][index] || UNKNOWN}
+                    pokemonImgUrl={findPokemonDBImage(pokemon?.name)}
+                  />
+                )),
+              )}
+              <ObservationComponent />
+              {isFetching && <Loading />}
+              {showTopBtn && (
+                <ScrollToTopBtn onClick={scrollToTop}>TOP</ScrollToTopBtn>
+              )}
+            </>
+          )}
+        </PokemonListContainer>
       )}
-      <ObservationComponent />
-      {isFetching && <Loading />}
-      {showTopBtn && <ScrollToTopBtn onClick={scrollToTop}>TOP</ScrollToTopBtn>}
-    </PokemonListWrapper>
+    </>
   );
 }
 
-const PokemonListWrapper = styled.div`
+const PokemonListContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 20px;
+`;
+
+const SearchedPokemonCardWrapper = styled.div`
+  height: 60vh;
+`;
+
+const BlankWrapper = styled.div`
+  height: 80vh;
 `;
 
 const ScrollToTopBtn = styled.button`
@@ -53,7 +110,7 @@ const ScrollToTopBtn = styled.button`
   color: white;
   cursor: pointer;
   padding: 15px;
-  border-radius: 20%;
+  border-radius: 10%;
   font-size: 18px;
   font-weight: bold;
 
