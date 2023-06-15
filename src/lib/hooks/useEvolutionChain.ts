@@ -6,17 +6,21 @@ type EvoType = {
   url: string;
 } | null;
 
-function useEvolutionChain(info?: EvolutionInfo, prevEvo?: EvoType) {
+function useEvolutionChain(info: EvolutionInfo, prevEvo?: EvoType) {
   const [evoChain, setEvoChain] = useState<EvoType[]>([]);
 
   let evoData = info;
 
   useEffect(() => {
     const EvoTypes = [];
-    if (prevEvo && prevEvo.name !== evoData?.evolves_to[0].species?.name)
+    if (
+      prevEvo &&
+      evoData?.evolves_to[0] &&
+      prevEvo?.name !== evoData?.evolves_to[0].species?.name
+    )
       EvoTypes.push(prevEvo);
 
-    while (evoData?.evolves_to.length) {
+    while (evoData?.evolves_to?.length) {
       if (!evoData) return;
       const evoDetails = evoData['evolves_to'][0];
 
