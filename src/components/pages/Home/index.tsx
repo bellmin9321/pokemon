@@ -1,11 +1,9 @@
 import { styled } from 'styled-components';
 import PokemonList from '../../PokemonList';
-import SearchInput from '../../SearchInput';
 
 function Home() {
   return (
     <HomeContainer>
-      <SearchInput />
       <PokemonList />
     </HomeContainer>
   );

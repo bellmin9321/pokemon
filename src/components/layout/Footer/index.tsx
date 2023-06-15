@@ -4,9 +4,6 @@ function Footer() {
   return (
     <FooterContainer>
       <div>@2023 Bellmin. All Rights Reserved.&ensp;</div>
-      <GithubText href="https://github.com/bellmin9321/pokemon" target="_blank">
-        Github
-      </GithubText>
     </FooterContainer>
   );
 }
@@ -19,12 +16,8 @@ const FooterContainer = styled.footer`
   width: 100%;
   background-color: #e72e2e;
   color: white;
-`;
-
-const GithubText = styled.a`
-  color: yellow;
-  text-decoration: none;
-  font-weight: bold;
+  font-size: 18px;
+  font-weight: 500;
 `;
 
 export default Footer;

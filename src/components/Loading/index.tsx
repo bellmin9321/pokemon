@@ -2,13 +2,13 @@ import { memo } from 'react';
 import ReactLoading from 'react-loading';
 import styled from 'styled-components';
 
-const Loader = () => {
+function Loading() {
   return (
     <LoadingWrapper>
       <ReactLoading type="spin" color="#406bc9" />
     </LoadingWrapper>
   );
-};
+}
 
 const LoadingWrapper = styled.div`
   width: 100%;
@@ -20,4 +20,4 @@ const LoadingWrapper = styled.div`
   padding: 10px 0 10px 0;
 `;
 
-export default memo(Loader);
+export default memo(Loading);
