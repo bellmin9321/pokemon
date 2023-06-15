@@ -6,7 +6,10 @@ function Header() {
   return (
     <HeaderContainer>
       <TitleBox to="/">
-        <NotFoundImg src={`${process.env.PUBLIC_URL}/favicon.ico`} />
+        <PokeballImg
+          src={`${process.env.PUBLIC_URL}/favicon.ico`}
+          alt="home_pokeball"
+        />
         <Title>Pokemon</Title>
       </TitleBox>
       <InputBox>
@@ -43,7 +46,7 @@ const TitleBox = styled(Link)`
   z-index: 20;
 `;
 
-const NotFoundImg = styled.img`
+const PokeballImg = styled.img`
   width: 30px;
   margin-right: 10px;
 `;
