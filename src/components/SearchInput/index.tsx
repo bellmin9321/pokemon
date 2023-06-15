@@ -1,21 +1,33 @@
 import styled from 'styled-components';
 import { ChangeEvent } from 'react';
 import { INPUT_PLACEHOLDER } from '../../constants';
+import { useNavigate } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
+import { inputSearchValue } from '../../lib/recoil';
 
 function SearchInput() {
+  const [searchValue, setSearchValue] =
+    useRecoilState<string>(inputSearchValue);
+  const navigate = useNavigate();
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log(e);
+    setSearchValue(e.target.value);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      console.log('Enter');
+      if (0 < parseInt(searchValue) && parseInt(searchValue) <= 1010) {
+        setSearchValue('');
+        navigate(`/pokemon/${searchValue}`);
+      } else {
+        alert('1~1010번까지 번호만 검색 가능합니다\nex: 1');
+      }
     }
   };
 
   return (
     <InputContainer>
-      <h2>좋아하는 포켓몬을 검색해보세요</h2>
+      <h2>좋아하는 포켓몬 번호를 검색해보세요</h2>
       <Input
         type="search"
         placeholder={INPUT_PLACEHOLDER}
