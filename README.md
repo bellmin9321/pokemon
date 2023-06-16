@@ -7,6 +7,11 @@
 - React-query와 react-intersection-observer를 이용하여 무한스크롤 paginate 구현
 <br />
 
+##  🌐 **배포 주소**
+
+### **https://main--rainbow-pithivier-2b009f.netlify.app/**
+<br />
+
 ## 🔑 **프로젝트 실행방법**
 
 ```
