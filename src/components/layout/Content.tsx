@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ChildrenProp } from '../../../types';
+import { ChildrenProp } from '../../types';
 
 function Content({ children }: ChildrenProp) {
   return <ContentContainer>{children}</ContentContainer>;

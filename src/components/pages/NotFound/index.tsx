@@ -10,7 +10,10 @@ function NotFound() {
         description="use another page"
         keywords="404"
       />
-      <NotFoundImg src={`${process.env.PUBLIC_URL}/favicon.ico`} />
+      <NotFoundImg
+        src={`${process.env.PUBLIC_URL}/favicon.ico`}
+        alt="notFound image"
+      />
       <NotFoundTextBox>
         <div>404 NotFound Page</div>
         <Link to="/">Go to Home </Link>
