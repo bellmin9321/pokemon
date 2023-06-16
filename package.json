@@ -43,10 +43,11 @@
     "postbuild": "react-snap"
   },
   "reactSnap": {
-    "inlineCss": true,
     "include": [
       "/"
-    ]
+    ],
+    "inlineCss": true,
+    "cacheAjaxRequests": true
   },
   "eslintConfig": {
     "extends": [
