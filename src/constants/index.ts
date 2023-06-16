@@ -1,5 +1,5 @@
 // String
-export const INPUT_PLACEHOLDER = `1~1010번까지 검색 가능`;
+export const INPUT_PLACEHOLDER = `1 ~ 1010번까지 검색 가능`;
 export const UNKNOWN = '알 수 없음';
 
 // Number
