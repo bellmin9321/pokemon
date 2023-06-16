@@ -24,7 +24,7 @@ const NotFoundContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  height: 80vh;
+  height: 90vh;
 `;
 
 const NotFoundImg = styled.img`
