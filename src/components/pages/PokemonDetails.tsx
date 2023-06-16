@@ -1,4 +1,4 @@
-import { findPokemonDBImage, useGetPokemon } from '../../lib/hooks/usePokemon';
+import { findPokemonDBImage, getPokemon } from '../../lib/api/pokemon';
 import { styled } from 'styled-components';
 import Loading from '../Loading';
 
@@ -15,7 +15,7 @@ function PokemonDetails() {
   const navigate = useNavigate();
   const setSearchNumber = useSetRecoilState(inputSearchValue);
 
-  const { data: pokemon, isLoading } = useGetPokemon(String(id));
+  const { data: pokemon, isLoading } = getPokemon(String(id));
 
   return (
     <PokemonDetailsContainer>

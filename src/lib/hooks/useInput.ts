@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { inputSearchValue } from '../recoil';
+import { useNavigate } from 'react-router-dom';
 
 function useInput() {
   const navigate = useNavigate();

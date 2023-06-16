@@ -7,7 +7,7 @@ import {
   SpeciesInfoTypes,
   flavor_text_entries,
 } from '../../types';
-import { useGetSpeciesInfo } from '../../lib/hooks/usePokemon';
+import { getSpeciesInfo } from '../../lib/api/pokemon';
 import EvolutionChain from './EvolutionChain';
 import Features from './Features';
 
@@ -16,7 +16,7 @@ interface SpeciesInfoProps {
 }
 
 function SpeciesInfo({ pokemonData }: SpeciesInfoProps) {
-  const { data: speciesInfo } = useGetSpeciesInfo(
+  const { data: speciesInfo } = getSpeciesInfo(
     pokemonData?.species.url as string,
   );
 

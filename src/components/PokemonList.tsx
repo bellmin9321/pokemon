@@ -8,7 +8,7 @@ import usePokemonKoreanNames from '../lib/hooks/usePokemonKoreanNames';
 import { Species } from '../types';
 import { useRecoilValue } from 'recoil';
 import { inputSearchValue } from '../lib/recoil';
-import { findPokemonDBImage, useGetPokemon } from '../lib/hooks/usePokemon';
+import { findPokemonDBImage, getPokemon } from '../lib/api/pokemon';
 import useDebounce from '../lib/hooks/useDebounce';
 
 function PokemonList() {
@@ -23,7 +23,7 @@ function PokemonList() {
     useInfiniteQueryWithScroll({ limit: DEFAULT_LIMIT });
   const { koreanNamesList } = usePokemonKoreanNames();
 
-  const { data: pokemon, isLoading: searchLoading } = useGetPokemon(
+  const { data: pokemon, isLoading: searchLoading } = getPokemon(
     debouncedSearchNumber,
   );
 

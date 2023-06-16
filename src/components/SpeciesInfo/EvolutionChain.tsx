@@ -1,8 +1,5 @@
 import React, { Fragment, Suspense, memo } from 'react';
-import {
-  findPokemonDBImage,
-  useGetEvolutionChain,
-} from '../../lib/hooks/usePokemon';
+import { findPokemonDBImage, getEvolutionChain } from '../../lib/api/pokemon';
 import useEvolutionChain from '../../lib/hooks/useEvolutionChain';
 import { styled } from 'styled-components';
 import { EvolutionInfo, SpeciesInfoTypes } from '../../types';
@@ -13,7 +10,7 @@ interface EvolutionChainProps {
 }
 
 function EvolutionChain({ species }: EvolutionChainProps) {
-  const { data: evolutionInfo, isLoading } = useGetEvolutionChain(
+  const { data: evolutionInfo, isLoading } = getEvolutionChain(
     species?.evolution_chain?.url as string,
   );
 

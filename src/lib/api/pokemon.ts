@@ -2,7 +2,7 @@ import { EvolutionInfo, PokemonData, SpeciesInfoTypes } from '../../types';
 import { useQuery } from 'react-query';
 import axios from 'axios';
 
-export const useGetPokemon = (id: string) => {
+export const getPokemon = (id: string) => {
   return useQuery<PokemonData>({
     queryKey: ['pokemon', id],
     queryFn: async () => {
@@ -33,7 +33,7 @@ export const findPokemonDBImage = (pokemonName: string) => {
   return `https://img.pokemondb.net/artwork/large/${pokemonName}.jpg`;
 };
 
-export const useGetSpeciesInfo = (url: string) => {
+export const getSpeciesInfo = (url: string) => {
   return useQuery<SpeciesInfoTypes>({
     queryKey: ['species', url],
     queryFn: async () => {
@@ -59,7 +59,7 @@ export const useGetSpeciesInfo = (url: string) => {
   });
 };
 
-export const useGetEvolutionChain = (url: string) => {
+export const getEvolutionChain = (url: string) => {
   return useQuery<EvolutionInfo>({
     queryKey: ['evoltution_chain', url],
     queryFn: async () => {
