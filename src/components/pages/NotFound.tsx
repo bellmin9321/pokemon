@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
-import Seo from '../../Seo';
+import Seo from './Seo';
+import { Link } from 'react-router-dom';
 
 function NotFound() {
   return (

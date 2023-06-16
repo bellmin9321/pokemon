@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
-import PokemonList from '../../PokemonList';
-import Seo from '../../Seo';
+import PokemonList from '../PokemonList';
+import Seo from './Seo';
 
 function Home() {
   return (

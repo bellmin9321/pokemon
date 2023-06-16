@@ -2,11 +2,11 @@ import React, { Fragment, Suspense, memo } from 'react';
 import {
   findPokemonDBImage,
   useGetEvolutionChain,
-} from '../../../../lib/hooks/usePokemon';
-import useEvolutionChain from '../../../../lib/hooks/useEvolutionChain';
+} from '../../lib/hooks/usePokemon';
+import useEvolutionChain from '../../lib/hooks/useEvolutionChain';
 import { styled } from 'styled-components';
-import { EvolutionInfo, SpeciesInfoTypes } from '../../../../types';
-import Loading from '../../../Loading';
+import { EvolutionInfo, SpeciesInfoTypes } from '../../types';
+import Loading from '../Loading';
 
 interface EvolutionChainProps {
   species: SpeciesInfoTypes;

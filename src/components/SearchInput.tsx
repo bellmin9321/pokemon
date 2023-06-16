@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { INPUT_PLACEHOLDER } from '../../constants';
-import useInput from '../../lib/hooks/useInput';
+import { INPUT_PLACEHOLDER } from '../constants';
+import useInput from '../lib/hooks/useInput';
 
 function SearchInput() {
   const { searchValue, handleChange, handleKeyDown } = useInput();

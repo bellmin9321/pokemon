@@ -1,15 +1,15 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { Suspense, useCallback } from 'react';
 import { styled } from 'styled-components';
-import Loading from '../../../Loading';
+import Loading from '../Loading';
 import {
   PokemonData,
   SpeciesInfoTypes,
   flavor_text_entries,
-} from '../../../../types';
-import { useGetSpeciesInfo } from '../../../../lib/hooks/usePokemon';
-import EvolutionChain from '../EvolutionChain';
-import Features from '../Features';
+} from '../../types';
+import { useGetSpeciesInfo } from '../../lib/hooks/usePokemon';
+import EvolutionChain from './EvolutionChain';
+import Features from './Features';
 
 interface SpeciesInfoProps {
   pokemonData?: PokemonData;

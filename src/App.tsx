@@ -7,7 +7,7 @@ import Layout from './components/layout';
 import Home from './components/pages/Home';
 import { RecoilRoot } from 'recoil';
 import Loading from './components/Loading';
-import PokemonDetails from './components/pages/PokemonDetails';
+import PokemonDetails from './components/pages/PokemonDetail';
 import NotFound from './components/pages/NotFound';
 
 function App() {

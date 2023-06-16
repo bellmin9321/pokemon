@@ -1,15 +1,15 @@
-import PokemonCard from '../PokemonCard';
+import PokemonCard from './PokemonCard';
 import { styled } from 'styled-components';
-import Loading from '../Loading';
-import useInfiniteQueryWithScroll from '../../lib/hooks/useInfiniteQueryWithScroll';
-import { DEFAULT_LIMIT, UNKNOWN } from '../../constants';
-import useScroll from '../../lib/hooks/useScroll';
-import usePokemonKoreanNames from '../../lib/hooks/usePokemonKoreanNames';
-import { Species } from '../../types';
+import Loading from './Loading';
+import useInfiniteQueryWithScroll from '../lib/hooks/useInfiniteQueryWithScroll';
+import { DEFAULT_LIMIT, UNKNOWN } from '../constants';
+import useScroll from '../lib/hooks/useScroll';
+import usePokemonKoreanNames from '../lib/hooks/usePokemonKoreanNames';
+import { Species } from '../types';
 import { useRecoilValue } from 'recoil';
-import { inputSearchValue } from '../../lib/recoil';
-import { findPokemonDBImage, useGetPokemon } from '../../lib/hooks/usePokemon';
-import useDebounce from '../../lib/hooks/useDebounce';
+import { inputSearchValue } from '../lib/recoil';
+import { findPokemonDBImage, useGetPokemon } from '../lib/hooks/usePokemon';
+import useDebounce from '../lib/hooks/useDebounce';
 
 function PokemonList() {
   const searchNumber = useRecoilValue(inputSearchValue);

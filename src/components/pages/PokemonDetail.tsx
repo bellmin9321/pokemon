@@ -1,16 +1,13 @@
-import {
-  findPokemonDBImage,
-  useGetPokemon,
-} from '../../../lib/hooks/usePokemon';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { findPokemonDBImage, useGetPokemon } from '../../lib/hooks/usePokemon';
 import { styled } from 'styled-components';
-import Loading from '../../Loading';
+import Loading from '../Loading';
 
-import { capitalize } from '../../../lib/utils';
-import SpeciesInfo from './SpeciesInfo';
+import { capitalize } from '../../lib/utils';
+import SpeciesInfo from '../SpeciesInfo';
 import { useSetRecoilState } from 'recoil';
-import { inputSearchValue } from '../../../lib/recoil';
-import Seo from '../../Seo';
+import { inputSearchValue } from '../../lib/recoil';
+import Seo from './Seo';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 function PokemonDetails() {
   const { id } = useParams();

@@ -1,7 +1,7 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import { capitalize } from '../../../../lib/utils';
-import { PokemonData, SpeciesInfoTypes } from '../../../../types';
+import { capitalize } from '../../lib/utils';
+import { PokemonData, SpeciesInfoTypes } from '../../types';
 
 interface FeaturesProps {
   pokemonData: PokemonData;
