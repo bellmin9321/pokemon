@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo } from 'react';
 import { styled } from 'styled-components';
 import { capitalize } from '../../lib/utils';
 import { PokemonData, SpeciesInfoTypes } from '../../types';
@@ -70,4 +70,4 @@ const AbilityRow = styled.div`
   }
 `;
 
-export default Features;
+export default memo(Features);
